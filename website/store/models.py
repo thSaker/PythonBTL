@@ -1,7 +1,7 @@
 from django.db import models
 
 from django.contrib.auth.models import User
-
+from django.contrib import admin
 import datetime
 import os
 # Create your models here.
@@ -113,3 +113,7 @@ class News(models.Model):
 
     def __str__(self):
         return self.title
+    
+
+
+

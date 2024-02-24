@@ -101,5 +101,3 @@ def news_detail(request, pk):
     return render(request, 'store/news/news_detail.html', {'news': news,'recent_posts': recent_posts,'archive_posts':archive_posts})
 
 
-
-

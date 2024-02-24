@@ -1,6 +1,7 @@
 from django.urls import path,include
 from . import views
 
+
 from store.controller import authview,cart,wishlist,checkout,order
 
 urlpatterns = [
@@ -28,5 +29,7 @@ urlpatterns = [
     path('contact/', views.contact_us, name='contactus'),
     path('news/', views.news_list, name='news_list'),
     path('news/<int:pk>/', views.news_detail, name='news_detail'),
-    path('admin_tools_stats/', include('admin_tools_stats.urls')),
+
+
+    
 ]
