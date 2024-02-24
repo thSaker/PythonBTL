@@ -1,0 +1,76 @@
+{% extends 'store/layouts/main.html' %} {% block content %} 
+
+<section
+  class="vh-100 bg-image"
+  style="
+    background-image: url('https://img.freepik.com/free-photo/top-view-different-fruits-composition-ripe-mellow-fruits-dark-background-fruit-ripe-tree-fresh-mellow_140725-116533.jpg?w=1380&t=st=1706926095~exp=1706926695~hmac=c2fb916911903834d9e78505d144ff91f4094282bc94d6cd857cb93cd1dcaae1');
+    background-repeat:no-repeat;
+background-size: cover;
+background-position: center;
+background-attachment: fixed;
+  "
+>
+  <div class="mask d-flex align-items-center h-100 gradient-custom-4">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card bg-dark text-white" style="border-radius: 15px">
+            <div class="card-body p-5">
+              <h2 class="text-uppercase text-center mb-5">Create an account</h2>
+              <form action="" method="POST">
+                {% csrf_token %}
+
+                <div class="form-outline mb-4">
+                  <label for="">Userame </label>
+                  {{form.username}} {% if form.errors.username %}
+                  <label class="text-danger">{{form.errors.username }}</label>
+                  {% endif%}
+                </div>
+
+                <div class="form-outline mb-4">
+                  <label for="">Email </label>
+                  {{form.email}} {% if form.errors.email %}
+                  <label class="text-danger">{{form.errors.email }}</label>
+                  {% endif%}
+                </div>
+
+                <div class="form-outline mb-4">
+                  <label for="">Password </label>
+                  {{form.password1}} {% if form.errors.password1 %}
+                  <label class="text-danger">{{form.errors.password1 }}</label>
+                  {% endif%}
+                </div>
+
+                <div class="form-outline mb-4">
+                  <label for="">Confirm Password </label>
+                  {{form.password2}} {% if form.errors.password2 %}
+                  <label class="text-danger">{{form.errors.password2 }}</label>
+                  {% endif%}
+                </div>
+
+                <div class="form-check d-flex justify-content-center mb-5">
+                  <label class="form-check-label" for="form2Example3g">
+                    I agree all statements in
+                    <a href="#!" class="text-white"><u>Terms of service</u></a>
+                  </label>
+                </div>
+
+                <div class="d-flex justify-content-center">
+                  <button type="submit" class="btn btn-block btn-lg shadow btn-success px-4">Register</button>
+                </div>
+                <p class="text-center text-white mt-5 mb-0 ">
+                  Have already an account?
+                  <a href="{% url 'loginpage' %}" class="fw-bold text-white"
+                    ><u>Login here</u></a
+                  >
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock content %}

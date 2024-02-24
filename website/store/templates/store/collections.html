@@ -1,0 +1,55 @@
+{% extends 'store/layouts/main.html' %}
+{% block content %}
+<div class="more-products mb-150">
+  <div class="breadcrumb-section breadcrumb-bg">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2 text-center">
+          <div class="breadcrumb-text">
+            <p>Fresh and Organic</p>
+            <h1>Collections</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="more-products mb-150">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <div class="col-lg-8 offset-lg-2 text-center">
+					<div class="section-title">	
+						<h3><span class="orange-text">
+              Our</span> Collections
+            </h3>
+					</div>
+				</div>
+        <hr />
+        <div class="row">
+          {% for item in category %}
+          <div class="col-md-3">
+            <div class="card">
+              <a href="{% url 'collectionsview' item.slug %}">
+                <div class="card-body">
+                  <div class="category-image">
+                    <img
+                      src="{{ item.image.url }}"
+                      alt="Category image"
+                      class="w-100 h-100"
+                    />
+                  </div>
+                  <h4 class="text-center" style="color:black;padding-top:20px;font-weight:700">
+                    {{ item.name }}
+                  </h4>
+                </div>
+              </a>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,59 @@
+{% extends 'store/layouts/main.html' %}
+{%load static%}
+ {% block content %}
+ <div class="more-products mb-100">
+ <div class="breadcrumb-section breadcrumb-bg">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-8 offset-lg-2 text-center">
+              <div class="breadcrumb-text">
+                  <h1>My Orders</h1>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+</div>
+<div class="more-products mb-100">
+<div class="container my-3">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card shadow">
+        <div class="card-header">
+            <h3 class="mb-0">
+              My Orders
+              <a href="{% url 'home'%}" class="btn btn-warning float-end text-white"><i class="fa-solid fa-reply"></i> Back</a>
+            </h3>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Order Date</th>
+                        <th>Tracking number</th>
+                        <th>Total Price</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for item in orders %}
+                        <tr>
+                            <td>{{item.created_at|date:"d/m/Y"}}</td>
+                            <td>{{item.tracking_no}}</td>
+                            <td>${{item.total_price| stringformat:"d"}}</td>
+                            <td>{{item.status}}</td>
+                            <td>
+                                <a href="{% url 'orderview' item.tracking_no %}" class="btn btn-primary">View</a>
+                            </td>
+                        </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+{%endblock%}
